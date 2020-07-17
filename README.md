@@ -2,6 +2,6 @@
 A natural language REPL
 
 
-## Compilation Commmand
+## Compilation
 
 g++ -o nalang main.cpp repl.cpp
