@@ -5,7 +5,9 @@ using namespace std;
 
 int main() {
     while (true) {
-        read();
+        prompt();
+        string input = read();
+        print(input);
     }
     return 0;
 }

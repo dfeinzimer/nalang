@@ -1,6 +1,12 @@
 #ifndef repl_h
 #define repl_h
 
-void read();
+#include <string>
+
+void print(std::string out);
+
+void prompt();
+
+std::string read();
 
 #endif
