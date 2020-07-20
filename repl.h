@@ -3,6 +3,8 @@
 
 #include <string>
 
+void analyze(std::string input);
+
 void print(std::string out);
 
 void prompt();
