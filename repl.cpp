@@ -24,15 +24,18 @@ vector<string> extractStatements(string input) {
             string newStatement = input.substr(start, i);
             result.push_back(newStatement);
             start = i++;
-
         }
     }
     print("Statements Extracted: " + to_string(result.size()));
     return result;
 }
 
+void interpret(std::string input) {
+    print("Interpretation Unavailable");
+}
+
 void print(string out) {
-    if (out == "") {
+    if(out == "") {
         return;
     }
     cout << out << endl;

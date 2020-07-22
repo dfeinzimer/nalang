@@ -12,9 +12,9 @@ int main() {
         string input = read();
         if(DIAGNOSTICS) {
             analyze(input);
-            extractStatements(input);
         }
-        print(input);
+        vector<string> statements = extractStatements(input);
+        for(int i = 0; i < statements.size(); i++) { interpret(statements.at(i)); }
     }
     return 0;
 }
