@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "repl.h"
 
 using namespace std;
@@ -6,11 +7,12 @@ using namespace std;
 bool DIAGNOSTICS = true;
 
 int main() {
-    while (true) {
+    while(true) {
         prompt();
         string input = read();
-        if (DIAGNOSTICS) {
+        if(DIAGNOSTICS) {
             analyze(input);
+            extractStatements(input);
         }
         print(input);
     }

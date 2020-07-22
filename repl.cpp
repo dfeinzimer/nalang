@@ -14,21 +14,20 @@ void analyze(string input) {
         }
     }
     print("Statements Expected: " + to_string(count));
-    vector<string> statements = extractStatements(input);
-    print("Statements Found: " + to_string(statements.size()));
 }
 
-vector<string> extractStatements(string inputString) {
+vector<string> extractStatements(string input) {
     vector<string> result;
     int start = 0;
-    for(int i = 0; i < inputString.length(); i++) {
-        if(inputString[i] == '.') {
-            string newStatement = inputString.substr(start, i);
+    for(int i = 0; i < input.length(); i++) {
+        if(input[i] == '.') {
+            string newStatement = input.substr(start, i);
             result.push_back(newStatement);
             start = i++;
 
         }
     }
+    print("Statements Extracted: " + to_string(result.size()));
     return result;
 }
 

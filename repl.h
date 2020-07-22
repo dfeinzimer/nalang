@@ -5,7 +5,7 @@
 
 void analyze(std::string input);
 
-std::vector<std::string> extractStatements(std::string inputString);
+std::vector<std::string> extractStatements(std::string input);
 
 void print(std::string out);
 
