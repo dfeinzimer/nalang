@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iterator>
+#include <sstream>
 #include <string>
 #include <vector>
 #include "repl.h"
@@ -30,8 +32,14 @@ vector<string> extractStatements(string input) {
     return result;
 }
 
-void interpret(std::string input) {
-    print("Interpretation Unavailable");
+vector<string> tokenize(std::string input) {
+    istringstream buf(input);
+    istream_iterator<string> beg(buf), end;
+    vector<string> tokens (beg, end);
+    for (auto& s: tokens) {
+        cout << "Token: " << s << endl;
+    }
+    return tokens;
 }
 
 void print(string out) {

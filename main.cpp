@@ -14,7 +14,7 @@ int main() {
             analyze(input);
         }
         vector<string> statements = extractStatements(input);
-        for(int i = 0; i < statements.size(); i++) { interpret(statements.at(i)); }
+        for(int i = 0; i < statements.size(); i++) { tokenize(statements.at(i)); }
     }
     return 0;
 }
