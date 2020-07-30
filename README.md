@@ -4,7 +4,7 @@ A natural language.
 
 ## Compilation
 
-`g++ -o nalang main.cpp repl.cpp`
+`g++ -std=c++11 -o nalang main.cpp repl.cpp pos.cpp`
 
 
 ## Syntax
