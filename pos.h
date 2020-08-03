@@ -6,17 +6,19 @@
 
 using namespace std;
 
-const vector<string>adjectives   = {"happy", "mad", "sad"};
-const vector<string>conjunctions = {"and"};
-const vector<string>verbs        = {"add", "create", "delete", "fill", "show", "sum", "summarize"};
-const vector<string>nouns        = {"list", "object", "thing", "variable"};
-const vector<string>participles  = {"called", "filled", "named"};
-const vector<string>prepositions = {"a"};
-const vector<string>pronoun      = {"it", "this"};
-const vector<string>amounts      = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+const vector<string>adjectives    = {"antique", "beautiful", "big", "happy", "hot", "fragrant", "mad", "sad", "sparkling" };
+const vector<string>adverbs       = {"carefully", "extremely","gently", "poorly", "well"};
+const vector<string>amounts       = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+const vector<string>conjunctions  = {"and", "because", "but", "or", "while"};
+const vector<string>interjections = {"oh", "oops", "wow"};
+const vector<string>nouns         = {"list", "object", "thing", "variable"};
+const vector<string>prepositions  = {"a", "about", "by", "until", "with"};
+const vector<string>pronoun       = {"he", "I", "it", "she", "they", "this", "who", "we"};
+const vector<string>verbs         = {"add", "create", "delete", "fill", "is", "show", "sum", "summarize"};
 
 bool contains(vector<string> arr, string target);
 string getPos(string token);
+bool isNumber(string input);
 string lowercased(string input);
 
 #endif
