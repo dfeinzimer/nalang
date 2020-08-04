@@ -2,11 +2,12 @@
 #include <vector>
 
 #include "pos.h"
+#include "recommender.h"
 #include "repl.h"
 
 using namespace std;
 
-bool DIAGNOSTICS = true;
+bool DIAGNOSTICS = false;
 
 int main() {
     while(true) {
@@ -18,9 +19,13 @@ int main() {
         vector<string> statements = extractStatements(input);
         for(int i = 0; i < statements.size(); i++) { 
             vector<string> tokens = tokenize(statements.at(i));
-            for(int i = 0; i < tokens.size(); i++) {
-                cout << tokens.at(i) << ": " << getPos(tokens.at(i)) << endl;
+            vector<string> partsOfSpeech = getPartsOfSpeech(tokens);
+            if(DIAGNOSTICS) {
+                for (int i = 0; i < tokens.size(); i++) {
+                    cout << "Token/POS: " << tokens.at(i) << "/" << partsOfSpeech.at(i) << endl;
+                }
             }
+            recommendAction(partsOfSpeech);
         }
     }
     return 0;

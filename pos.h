@@ -13,11 +13,12 @@ const vector<string>conjunctions  = {"and", "because", "but", "or", "while"};
 const vector<string>interjections = {"oh", "oops", "wow"};
 const vector<string>nouns         = {"list", "object", "thing", "variable"};
 const vector<string>prepositions  = {"a", "about", "by", "until", "with"};
-const vector<string>pronoun       = {"he", "I", "it", "she", "they", "this", "who", "we"};
-const vector<string>verbs         = {"add", "create", "delete", "fill", "is", "show", "sum", "summarize"};
+const vector<string>pronoun       = {"he", "i", "it", "she", "they", "this", "who", "we"};
+const vector<string>verbs         = {"add", "am", "called", "create", "delete", "fill", "is", "show", "sum", "summarize", "named"};
 
 bool contains(vector<string> arr, string target);
-string getPos(string token);
+string getPartOfSpeech(string token);
+vector<string> getPartsOfSpeech(vector<string>tokens);
 bool isNumber(string input);
 string lowercased(string input);
 

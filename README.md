@@ -4,7 +4,7 @@ A natural language.
 
 ## Compilation
 
-`g++ -std=c++11 -o nalang main.cpp repl.cpp pos.cpp`
+`g++ -std=c++11 -o nalang main.cpp repl.cpp pos.cpp recommender.cpp`
 
 
 ## Syntax
@@ -13,4 +13,4 @@ In nalang a valid statment begins with a capital alphabetic character and ends w
 
 Valid: `This is a statement.`
 
-Invalid: `This is a statement`
+Invalid: `This is not a statement`

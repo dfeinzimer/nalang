@@ -20,7 +20,7 @@ bool contains(vector<string> arr, string target) {
  * @param token One english language word.
  * @return The part of speech the given token belongs to.
  */
-string getPos(string token) {
+string getPartOfSpeech(string token) {
     if (contains(adjectives, token))    { return "ADJECTIVE"; }
     if (contains(conjunctions, token))  { return "CONJUNCTION"; }
     if (contains(adverbs, token))       { return "ADVERB"; }
@@ -32,6 +32,20 @@ string getPos(string token) {
     if (contains(amounts, token))       { return "AMOUNT"; }
     if (isNumber(token))                { return "NUMBER"; }
     return "N/A";
+}
+
+/**
+ * Returns the parts of speech a vector of tokens belong to.
+ *
+ * @param tokens A vector of english language words.
+ * @return A vector of parts of speech.
+ */
+vector<string> getPartsOfSpeech(vector<string> tokens) {
+    vector<string> partsOfSpeech;
+    for (int i = 0; i < tokens.size(); i++) {
+        partsOfSpeech.push_back(getPartOfSpeech(tokens.at(i)));
+    }
+    return partsOfSpeech;
 }
 
 bool isNumber(string input) {
