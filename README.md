@@ -7,6 +7,13 @@ A natural language.
 `g++ -std=c++11 -o nalang main.cpp repl.cpp pos.cpp recommender.cpp`
 
 
+## Usage
+
+To run in normal mode: `./nalang`.
+
+To run in debug mode: `./nalang d`.
+
+
 ## Syntax
 
 In nalang a valid statment begins with a capital alphabetic character and ends with a period.

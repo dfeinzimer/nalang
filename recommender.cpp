@@ -21,7 +21,7 @@ void describeAction(action anAction) {
     }
 }
 
-action recommendAction(vector<string>partsOfSpeech) {
+action recommendAction(definedStatement statement) {
     describeAction(NO_OP);
     return NO_OP;
 }

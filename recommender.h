@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "pos.h"
+
 using namespace std;
 
 enum action { 
@@ -14,6 +16,6 @@ enum action {
 };
 
 void describeAction(action anAction);
-action recommendAction(vector<string>partsOfSpeech);
+action recommendAction(vector<tuple<string,partOfSpeech>>pairs);
 
 #endif
