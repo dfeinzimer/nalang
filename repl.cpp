@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void analyze(string input) {
+void analyze(string input, bool debug) {
     const char per = '.';
     int count = 0;
     for(int x = 0; x < input.length(); x++) {
@@ -15,10 +15,10 @@ void analyze(string input) {
             count ++;
         }
     }
-    print("Statements Expected: " + to_string(count));
+    if (debug) { print("Statements Expected: " + to_string(count)); }
 }
 
-vector<string> extractStatements(string input) {
+vector<string> extractStatements(string input, bool debug) {
     vector<string> result;
     int start = 0;
     for(int i = 0; i < input.length(); i++) {
@@ -28,18 +28,25 @@ vector<string> extractStatements(string input) {
             start = i++;
         }
     }
-    print("Statements Extracted: " + to_string(result.size()));
+    if (debug) { print("Statements Extracted: " + to_string(result.size())); }
     return result;
 }
 
-vector<string> tokenize(std::string input) {
+vector<string> tokenize(std::string input, bool debug) {
     istringstream buf(input);
     istream_iterator<string> beg(buf), end;
-    vector<string> tokens (beg, end);
-    for (auto& s: tokens) {
-        cout << "Token: " << s << endl;
+    vector<string> foundtokens (beg, end);
+    vector<string> processedTokens;
+    for (int i = 0; i < foundtokens.size(); i++) {
+        string newToken;
+        for (int j = 0; j < foundtokens.at(i).length(); j++) {
+            newToken.push_back(tolower(foundtokens.at(i)[j]));
+        }
+        if (newToken != ".") {
+            processedTokens.push_back(newToken);
+        }
     }
-    return tokens;
+    return processedTokens;
 }
 
 void print(string out) {

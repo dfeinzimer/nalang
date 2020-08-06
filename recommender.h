@@ -16,6 +16,6 @@ enum action {
 };
 
 void describeAction(action anAction);
-action recommendAction(vector<tuple<string,partOfSpeech>>pairs);
+action recommendAction(definedStatement pairs);
 
 #endif

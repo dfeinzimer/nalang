@@ -22,6 +22,18 @@ void describeAction(action anAction) {
 }
 
 action recommendAction(definedStatement statement) {
-    describeAction(NO_OP);
-    return NO_OP;
+    action recommendation = NO_OP;
+    if (get<1>(statement.at(0)) == VERB) {
+        string token = get<0>(statement.at(0));
+        if (token == "build" || token == "create" || token == "found" || token == "generate" || token == "make" || token == "start") {
+            recommendation = DEFINE_VALUE;
+        } else if (token == "delete" || token == "destroy" || token == "remove") {
+            recommendation = DELETE_VALUE;
+        } else if (token == "print" || token == "show") {
+            recommendation = SHOW_VALUE;
+        }
+    } else {
+        recommendation = NO_OP;
+    }
+    return recommendation;
 }

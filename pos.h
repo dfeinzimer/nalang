@@ -14,7 +14,7 @@ const vector<string>interjections = {"oh", "oops", "wow"};
 const vector<string>nouns         = {"list", "object", "thing", "variable"};
 const vector<string>prepositions  = {"a", "about", "by", "until", "with"};
 const vector<string>pronoun       = {"he", "i", "it", "she", "they", "this", "who", "we"};
-const vector<string>verbs         = {"add", "am", "called", "create", "delete", "fill", "is", "show", "sum", "summarize", "named"};
+const vector<string>verbs         = {"add", "am", "called", "create", "delete", "fill", "is", "make", "named", "show", "sum", "summarize"};
 
 enum partOfSpeech { 
     ADJECTIVE,      ADVERB,         AMOUNT,
@@ -30,6 +30,7 @@ partOfSpeech getPartOfSpeech(string token);
 vector<partOfSpeech> getPartsOfSpeech(vector<string>tokens);
 bool isNumber(string input);
 string lowercased(string input);
+void showDefinedStatement(definedStatement statement);
 void showPartOfSpeech(partOfSpeech pos);
 definedStatement packageTokens(vector<string>tokens,vector<partOfSpeech>pos);
 

@@ -65,6 +65,16 @@ string lowercased(string input) {
     return input;
 }
 
+void showDefinedStatement(definedStatement statement) {
+    for (int i = 0; i < statement.size(); i++) {
+        string token = get<0>(statement.at(i));
+        partOfSpeech pos = get<1>(statement.at(i));
+        cout << "Token/POS: " << token << "/";
+        showPartOfSpeech(pos);
+        cout << endl;
+    }
+}
+
 void showPartOfSpeech(partOfSpeech pos) {
     switch (pos) {
         case ADJECTIVE:     cout << "ADJECTIVE";    break;

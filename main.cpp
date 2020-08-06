@@ -19,22 +19,16 @@ int main(int argc, char** argv) {
     while(true) {
         prompt();
         string input = read();
-        if(DEBUG) {
-            analyze(input);
-        }
-        vector<string> statements = extractStatements(input);
+        analyze(input, DEBUG);
+        vector<string> statements = extractStatements(input, DEBUG);
         for(int i = 0; i < statements.size(); i++) { 
-            vector<string> tokens = tokenize(statements.at(i));
+            vector<string> tokens = tokenize(statements.at(i), DEBUG);
             vector<partOfSpeech> partsOfSpeech = getPartsOfSpeech(tokens);
             definedStatement packagedStatement = packageTokens(tokens,partsOfSpeech);
-            if(DEBUG) {
-                for (int i = 0; i < tokens.size(); i++) {
-                    cout << "Token/POS: " << tokens.at(i) << "/";
-                    showPartOfSpeech(partsOfSpeech.at(i));
-                    cout << endl;
-                }
-            }
-            recommendAction(packagedStatement);
+            if(DEBUG) { showDefinedStatement(packagedStatement); }
+            action recommendation = recommendAction(packagedStatement);
+            describeAction(recommendation);
+            cout << "Action not implemented" << endl;
         }
     }
     return 0;
