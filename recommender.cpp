@@ -4,23 +4,6 @@
 
 using namespace std;
 
-void describeAction(action anAction) {
-    switch (anAction) {
-    case DEFINE_VALUE:
-        cout << "Create a new value." << endl;
-        break;
-    case DELETE_VALUE:
-        cout << "Delete an existing value." << endl;
-        break;
-    case NO_OP:
-        cout << "No action recommended." << endl;
-        break;
-    case SHOW_VALUE:
-        cout << "Display an existing value." << endl;
-        break;
-    }
-}
-
 action recommendAction(definedStatement statement) {
     action recommendation = NO_OP;
     if (get<1>(statement.at(0)) == VERB) {
@@ -36,4 +19,21 @@ action recommendAction(definedStatement statement) {
         recommendation = NO_OP;
     }
     return recommendation;
+}
+
+void describeAction(action anAction) {
+    switch (anAction) {
+    case DEFINE_VALUE:
+        cout << "Create a new value." << endl;
+        break;
+    case DELETE_VALUE:
+        cout << "Delete an existing value." << endl;
+        break;
+    case NO_OP:
+        cout << "No action recommended." << endl;
+        break;
+    case SHOW_VALUE:
+        cout << "Display an existing value." << endl;
+        break;
+    }
 }

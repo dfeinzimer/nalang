@@ -3,19 +3,15 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "repl.h"
 
 using namespace std;
 
-void analyze(string input, bool debug) {
-    const char per = '.';
-    int count = 0;
-    for(int x = 0; x < input.length(); x++) {
-        if(input.at(x) ==  per) {
-            count ++;
-        }
-    }
-    if (debug) { print("Statements Expected: " + to_string(count)); }
+void print(string out);
+
+string read() {
+    string input_buffer;
+    getline(cin, input_buffer);
+    return input_buffer;
 }
 
 vector<string> extractStatements(string input, bool debug) {
@@ -28,7 +24,9 @@ vector<string> extractStatements(string input, bool debug) {
             start = i++;
         }
     }
-    if (debug) { print("Statements Extracted: " + to_string(result.size())); }
+    int statementCount = result.size();
+    if (debug) { print("Statements Extracted: " + to_string(statementCount)); }
+    if (input.length() > 0 && statementCount == 0) { cout << "Tip: Make sure to use periods!" << endl; }
     return result;
 }
 
@@ -49,6 +47,17 @@ vector<string> tokenize(std::string input, bool debug) {
     return processedTokens;
 }
 
+void analyze(string input, bool debug) {
+    const char per = '.';
+    int count = 0;
+    for(int x = 0; x < input.length(); x++) {
+        if(input.at(x) ==  per) {
+            count ++;
+        }
+    }
+    if (debug) { print("Statements Expected: " + to_string(count)); }
+}
+
 void print(string out) {
     if(out == "") {
         return;
@@ -58,10 +67,4 @@ void print(string out) {
 
 void prompt() {
     cout << "nalang> ";
-}
-
-string read() {
-    string input_buffer;
-    getline(cin, input_buffer);
-    return input_buffer;
 }

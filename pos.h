@@ -26,12 +26,12 @@ enum partOfSpeech {
 using definedStatement = vector<tuple<string,partOfSpeech>>;
 
 bool contains(vector<string> arr, string target);
-partOfSpeech getPartOfSpeech(string token);
-vector<partOfSpeech> getPartsOfSpeech(vector<string>tokens);
 bool isNumber(string input);
+definedStatement packageTokens(vector<string>tokens,vector<partOfSpeech>pos);
+partOfSpeech getPartOfSpeech(string token);
 string lowercased(string input);
+vector<partOfSpeech> getPartsOfSpeech(vector<string>tokens);
 void showDefinedStatement(definedStatement statement);
 void showPartOfSpeech(partOfSpeech pos);
-definedStatement packageTokens(vector<string>tokens,vector<partOfSpeech>pos);
 
 #endif

@@ -1,21 +1,24 @@
 #include <iostream>
 #include <vector>
 
+#include "objectdef.h"
+#include "operate.h"
 #include "pos.h"
 #include "recommender.h"
 #include "repl.h"
+#include "utils.h"
 
 using namespace std;
 
-bool DEBUG = false;
+using objectName = string;
+using state = vector<tuple<objectName,objectdef>>;
 
-void enableDiagnostics(int count, char** args) {
-    if (count < 2) { return; } 
-    if (!strcmp(args[1], "d")) { DEBUG = true; }
-}
+bool DEBUG = false;
+state STATE;
 
 int main(int argc, char** argv) {
-    enableDiagnostics(argc,argv);
+    usage();
+    enableDebug(argc,argv, DEBUG);
     while(true) {
         prompt();
         string input = read();
@@ -27,8 +30,8 @@ int main(int argc, char** argv) {
             definedStatement packagedStatement = packageTokens(tokens,partsOfSpeech);
             if(DEBUG) { showDefinedStatement(packagedStatement); }
             action recommendation = recommendAction(packagedStatement);
-            describeAction(recommendation);
-            cout << "Action not implemented" << endl;
+            if(DEBUG) { describeAction(recommendation); }
+            routeOperation(recommendation, STATE);
         }
     }
     return 0;

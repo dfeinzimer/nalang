@@ -15,7 +15,7 @@ enum action {
     SHOW_VALUE
 };
 
-void describeAction(action anAction);
 action recommendAction(definedStatement pairs);
+void describeAction(action anAction);
 
 #endif

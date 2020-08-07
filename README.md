@@ -4,14 +4,14 @@ A natural language.
 
 ## Compilation
 
-`g++ -std=c++11 -o nalang main.cpp repl.cpp pos.cpp recommender.cpp`
+`g++ -std=c++11 -o nalang main.cpp repl.cpp operate.cpp pos.cpp recommender.cpp utils.cpp`
 
 
 ## Usage
 
-To run in normal mode: `./nalang`.
+Normal mode: `./nalang`.
 
-To run in debug mode: `./nalang d`.
+Debug mode: `./nalang -d`.
 
 
 ## Syntax

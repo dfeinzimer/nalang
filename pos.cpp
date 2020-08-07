@@ -15,6 +15,24 @@ bool contains(vector<string> arr, string target) {
     return false;
 }
 
+bool isNumber(string input) {
+    for (int i = 0; i < input.length(); i++) {
+        if (isdigit(input[i]) == false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+definedStatement packageTokens(vector<string>tokens,vector<partOfSpeech>pos) {
+    vector<tuple<string,partOfSpeech>> result;
+    if (tokens.size() != pos.size()) { return result; }
+    for (int i  = 0; i < tokens.size(); i++) {
+        result.push_back(tie(tokens.at(i), pos.at(i)));
+    }
+    return result;
+}
+
 /**
  * Returns the part of speech a token belongs to.
  *
@@ -35,6 +53,13 @@ partOfSpeech getPartOfSpeech(string token) {
     return ERROR;
 }
 
+string lowercased(string input) {
+    for(int i = 0; i < input.length(); i++) {
+        input[i] = tolower(input[i]);
+    }
+    return input;
+}
+
 /**
  * Returns the parts of speech a vector of tokens belong to.
  *
@@ -47,22 +72,6 @@ vector<partOfSpeech> getPartsOfSpeech(vector<string> tokens) {
         partsOfSpeech.push_back(getPartOfSpeech(tokens.at(i)));
     }
     return partsOfSpeech;
-}
-
-bool isNumber(string input) {
-    for (int i = 0; i < input.length(); i++) {
-        if (isdigit(input[i]) == false) {
-            return false;
-        }
-    }
-    return true;
-}
-
-string lowercased(string input) {
-    for(int i = 0; i < input.length(); i++) {
-        input[i] = tolower(input[i]);
-    }
-    return input;
 }
 
 void showDefinedStatement(definedStatement statement) {
@@ -88,13 +97,4 @@ void showPartOfSpeech(partOfSpeech pos) {
         case PRONOUN:       cout << "PRONOUN";      break;
         case VERB:          cout << "VERB";         break;
     }
-}
-
-definedStatement packageTokens(vector<string>tokens,vector<partOfSpeech>pos) {
-    vector<tuple<string,partOfSpeech>> result;
-    if (tokens.size() != pos.size()) { return result; }
-    for (int i  = 0; i < tokens.size(); i++) {
-        result.push_back(tie(tokens.at(i), pos.at(i)));
-    }
-    return result;
 }
