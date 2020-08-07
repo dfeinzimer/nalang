@@ -6,6 +6,7 @@
 #include "pos.h"
 #include "recommender.h"
 #include "repl.h"
+#include "test.h"
 #include "utils.h"
 
 using namespace std;
@@ -14,11 +15,17 @@ using objectName = string;
 using state = vector<tuple<objectName,objectdef>>;
 
 bool DEBUG = false;
+bool TEST = false;
 state STATE;
 
 int main(int argc, char** argv) {
     usage();
     enableDebug(argc,argv, DEBUG);
+    enableTests(argc,argv, TEST);
+    if (TEST) {
+        runTests();
+        return 0;
+    }
     while(true) {
         prompt();
         string input = read();
